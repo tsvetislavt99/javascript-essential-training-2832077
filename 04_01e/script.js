@@ -4,6 +4,7 @@
  *
  */
 import Backpack from "./Backpack.js";
+import createEl from "../MyFunctions/createElement.js";
 
 const everydayPack = new Backpack(
   "Everyday Pack",

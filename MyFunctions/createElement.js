@@ -1,4 +1,4 @@
-function createEl(type, content, attributes) {
+export default function createEl(type, content, attributes) {
   const result = document.createElement(type);
 
   if (attributes !== undefined) {
