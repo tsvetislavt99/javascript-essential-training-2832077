@@ -22,3 +22,12 @@ const macbook = {
     hdmi: false,
   },
 };
+
+const keyboard = {
+  brand: "Logitech",
+  hasCable: false,
+  hasBluetoothUsb: false,
+  layout: "EN/BG",
+  type: "mechanical",
+  batteryLife: "12 months",
+};
