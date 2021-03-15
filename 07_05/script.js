@@ -19,6 +19,36 @@ const deskArray = [
 ];
 console.log("Original array:", deskArray);
 
+deskArray.pop();
+
+console.log("After pop:", deskArray);
+
+deskArray.unshift(deskArray.pop());
+
+console.log("Last item made first:", deskArray);
+
+deskArray.sort();
+
+console.log("Sorted array:", deskArray);
+
+const found = deskArray.find((item) => item === "notebook");
+
+console.log(found);
+
+console.log("Array:", deskArray);
+
+console.log(deskArray.splice(0, 2));
+
+console.log("Array after splice:", deskArray);
+
+deskArray.unshift("clips", "paper");
+
+console.log("Array now:", deskArray);
+
+let arrayCopy = deskArray.slice();
+
+console.log("Slice without args on an array:", arrayCopy);
+
 // Remove the last item:
 // @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop
 // deskArray.pop();
