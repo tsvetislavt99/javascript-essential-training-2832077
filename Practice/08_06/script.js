@@ -10,19 +10,31 @@ import { backpacks } from "./data.js";
 
 const mainEl = document.querySelector(".maincontent");
 
-console.log(mainEl);
+createArticles(backpacks);
 
-backpacks.forEach((backpack) => {
-  const articleEl = createEl("article", [
-    createEl("h1", backpack.name, { classList: "backpack-heading" }),
-    createEl("ul", [
-      createEl("li", backpack.color),
-      createEl("li", String(backpack.volume)),
-      createEl("li", String(backpack.pockets)),
-    ]),
-  ]);
-  mainEl.append(articleEl);
-});
+//I am using an arrow function here just for testing purposes
+
+const styleAdder = () => {
+  document
+    .querySelectorAll(".backpack-heading")
+    .forEach((heading) => (heading.style.color = "red"));
+};
+
+styleAdder();
+
+function createArticles(backpacks) {
+  backpacks.forEach((backpack) => {
+    const articleEl = createEl("article", [
+      createEl("h1", backpack.name, { classList: "backpack-heading" }),
+      createEl("ul", [
+        createEl("li", backpack.color),
+        createEl("li", String(backpack.volume)),
+        createEl("li", String(backpack.pockets)),
+      ]),
+    ]);
+    mainEl.append(articleEl);
+  });
+}
 
 function createEl(type, content, attributes) {
   const result = document.createElement(type);
