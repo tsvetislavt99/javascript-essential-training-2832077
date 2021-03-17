@@ -13,6 +13,8 @@
  *  - Returns <figure> element to where function is called
  */
 
+import createEl from "../../MyFunctions/createElement.js";
+
 const frogpack = {
   name: "Frog Backpack",
   volume: 8,
@@ -57,3 +59,38 @@ const content = `
       }</span></li>
     </ul>  
 `;
+
+function createContainersAndPopulateThem(figureContainer, articleContainer) {
+  const container = createEl("div", "", {
+    classList: "big-container",
+  });
+
+  container.appendChild(articleContainer);
+  container.appendChild(figureContainer);
+  const mainEl = document.querySelector("main");
+  mainEl.append(container);
+}
+
+function createFigureEl(frogpack) {
+  return createEl(
+    "div",
+    [createEl("img", "", { src: `${frogpack.image}`, classList: "frog-img" })],
+    {
+      classList: "container-small",
+    }
+  );
+}
+
+function createAndAppendArticle(content) {
+  const articleEl = document.createElement("article");
+  articleEl.innerHTML = content;
+  const div = createEl("div", "", { classList: "container-small" });
+  div.appendChild(articleEl);
+
+  return div;
+}
+
+createContainersAndPopulateThem(
+  createFigureEl(frogpack),
+  createAndAppendArticle(content)
+);
