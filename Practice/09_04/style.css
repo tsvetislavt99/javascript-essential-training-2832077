@@ -16,9 +16,22 @@ body {
   border-radius: 0.5rem;
 }
 
+.grid-hovered {
+  border: 2px solid red;
+}
+
 .cell {
   display: block;
   width: 6rem;
   height: 6rem;
   background-color: hsl(0, 0%, 90%);
+}
+
+.cell-hovered {
+  background-color: hsl(0, 0%, 43%);
+  transform: scale(1.2);
+}
+
+.cell-clicked {
+  transform: scale(0.8);
 }

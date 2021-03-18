@@ -5,3 +5,48 @@
  * - Add an event listener to each grid cell to change its background color when it is clicked.
  * - Add an event listener to a specific key on the keyboard to change the background color of the whole page - from dark to light and back again.
  */
+
+const gridBox = document.querySelector(".grid");
+const resetBtn = document.querySelector(".button");
+
+gridBox.addEventListener("mouseenter", () => {
+  gridBox.classList.add("grid-hovered");
+});
+
+gridBox.addEventListener("mouseleave", () => {
+  gridBox.classList.remove("grid-hovered");
+});
+
+const littleBoxes = document.querySelectorAll(".cell");
+
+littleBoxes.forEach((box) => {
+  box.addEventListener("mouseenter", () => {
+    box.classList.add("cell-hovered");
+  });
+  box.addEventListener("click", () => {
+    box.classList.add("cell-clicked");
+  });
+});
+
+resetBtn.addEventListener("click", () => {
+  littleBoxes.forEach((box) => box.classList.remove("cell-hovered"));
+});
+
+const body = document.body;
+body.addEventListener("keydown", (event) => {
+  // event.code holds the current key pressed:
+  console.log(event.code);
+
+  // Test for KeyD (the "d" key)
+  if (event.code === "KeyD") {
+    body.style.backgroundColor === ""
+      ? (body.style.backgroundColor = "hsl(201, 34%, 13%)")
+      : (body.style.backgroundColor = "");
+  }
+});
+
+body.addEventListener("keydown", (event) => {
+  if (event.code === "KeyD") {
+    alert("BackgroundChanged");
+  }
+});
