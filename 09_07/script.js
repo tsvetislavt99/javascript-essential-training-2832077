@@ -12,6 +12,30 @@
 import backpackObjectArray from "./components/data.js";
 
 /**
+ * Strap lentgth update function
+ */
+const updateStrapLengths = (strapArray) => {
+  strapArray.forEach((listElement) => {
+    let side = listElement.getAttribute("data-side");
+    const form = document.createElement("form");
+    form.classList.add(`${side}length`);
+    form.innerHTML = `
+    <input type="number" placeholder="meow" name="${side}Length">
+    <button> Update </button>`;
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      let newValue = listElement.querySelector("input").value;
+      if (newValue !== "")
+        listElement.querySelector("span").innerHTML = `${newValue} cm`;
+      listElement.querySelector("input").value = "";
+    });
+
+    listElement.appendChild(form);
+  });
+};
+/**
  * Add event listener to the lid-toggle button.
  */
 const lidToggle = function (event, button, newArg) {
@@ -76,6 +100,9 @@ const backpackList = backpackObjectArray.map((backpack) => {
 
   let button = backpackArticle.querySelector(".lid-toggle");
   let newArg = "The argument I want to pass to the callback function!";
+
+  let strapArr = backpackArticle.querySelectorAll(".backpack__strap");
+  updateStrapLengths(strapArr);
 
   // Add event listener
   button.addEventListener("click", (event) => {
